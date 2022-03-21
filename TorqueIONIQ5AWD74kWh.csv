@@ -1,0 +1,307 @@
+Name,ShortName,ModeAndPID,Equation,Min Value,Max Value,Units,Header
+~Intial version based on Kona and e-Niro EV
+~Source: GitHub 18 Aug 2019
+~https://github.com/JejuSoul/OBD-PIDs-for-HKMC-EVs/tree/master/Hyundai%20Kona%20EV%20%26%20Kia%20Niro%20EV
+~
+~Zuinige Rijder
+~20210907 V1 Adapted for IONIQ 5 72 kWh AWD
+~Added Cell Voltage 092 till 184
+~Added 000_Battery Module 05 Temperature and 000_Battery Module 06 Temperature
+~Changed some calculations to use 72 kWh instead of 64 kWh and use the Torque for the IONIQ 5 AWD 72 kWh
+~Added experimental Odometer
+~Added experimental Tires information
+~
+~20210908 V2 Fixes and new features
+~Fixed tire pressures
+~Fixed Odometer
+~Removed Battery Module 06 Temperature
+~Shortened Short names of several formula's
+~Fixed CALC Average Battery Module Temperature
+~Fixed CALC Average Cell Voltage
+~Added estimated charging time from current SOC to 80% for 2.3/3.7/7.4/11/50/100/150/175/350kWh chargers using evdatabase 10% to 80% estimations.
+~
+~20210910 V3 All known battery temperatures
+~Added 16 battery pack temperatures
+~Removed inlet temperature
+~Removed heater 2 temperature
+~Shortened names even more, do not put e.g. T in shortname when the symbol is C, Same for V and A.
+~Fixed Indoor and Outdoor to properly show Celcius
+~
+~20210914 V4 Added vehicle speed and fixes
+~Added 001_Real Vehicle Speed
+~Fixed Max Power and Max Regen (253 kW)
+~
+~20210919 V5 Fixed double cells, now 180 cells according spec (thanks to SoulEVSpy developer)
+~
+~20210927 V6 Removed PIDs with wrong Aux battery values (thanks to EV Watchdog developer)
+~Removed 000_Auxillary Battery SOC,Aux SOC,2102,X,0,100,%,7E2
+~Removed 000_Auxillary Battery Current,Aux,2102,(SIGNED(W)*256+V)/1000,-100,100,A,7E2
+~Removed 000_IONIQ5_Auxillary Battery Voltage,Aux,2102,(SIGNED(U)*256+T)/1000,11,14.6,V,7E2
+~Fixed Shortname numbering Cell voltages
+~
+~20211027 V7 Adapted some Min/Max values, including ABRP (thanks to @HTWUSER for spotting)
+~
+000_Cell Voltage 001,C001,0x220102,e/50,2.70,4.30,V,7E4
+000_Cell Voltage 002,C002,0x220102,f/50,2.70,4.30,V,7E4
+000_Cell Voltage 003,C003,0x220102,g/50,2.70,4.30,V,7E4
+000_Cell Voltage 004,C004,0x220102,h/50,2.70,4.30,V,7E4
+000_Cell Voltage 005,C005,0x220102,i/50,2.70,4.30,V,7E4
+000_Cell Voltage 006,C006,0x220102,j/50,2.70,4.30,V,7E4
+000_Cell Voltage 007,C007,0x220102,k/50,2.70,4.30,V,7E4
+000_Cell Voltage 008,C008,0x220102,l/50,2.70,4.30,V,7E4
+000_Cell Voltage 009,C009,0x220102,m/50,2.70,4.30,V,7E4
+000_Cell Voltage 010,C010,0x220102,n/50,2.70,4.30,V,7E4
+000_Cell Voltage 011,C011,0x220102,o/50,2.70,4.30,V,7E4
+000_Cell Voltage 012,C012,0x220102,p/50,2.70,4.30,V,7E4
+000_Cell Voltage 013,C013,0x220102,q/50,2.70,4.30,V,7E4
+000_Cell Voltage 014,C014,0x220102,r/50,2.70,4.30,V,7E4
+000_Cell Voltage 015,C015,0x220102,s/50,2.70,4.30,V,7E4
+000_Cell Voltage 016,C016,0x220102,t/50,2.70,4.30,V,7E4
+000_Cell Voltage 017,C017,0x220102,u/50,2.70,4.30,V,7E4
+000_Cell Voltage 018,C018,0x220102,v/50,2.70,4.30,V,7E4
+000_Cell Voltage 019,C019,0x220102,w/50,2.70,4.30,V,7E4
+000_Cell Voltage 020,C020,0x220102,x/50,2.70,4.30,V,7E4
+000_Cell Voltage 021,C021,0x220102,y/50,2.70,4.30,V,7E4
+000_Cell Voltage 022,C022,0x220102,z/50,2.70,4.30,V,7E4
+000_Cell Voltage 023,C023,0x220102,aa/50,2.70,4.30,V,7E4
+000_Cell Voltage 024,C024,0x220102,ab/50,2.70,4.30,V,7E4
+000_Cell Voltage 025,C025,0x220102,ac/50,2.70,4.30,V,7E4
+000_Cell Voltage 026,C026,0x220102,ad/50,2.70,4.30,V,7E4
+000_Cell Voltage 027,C027,0x220102,ae/50,2.70,4.30,V,7E4
+000_Cell Voltage 028,C028,0x220102,af/50,2.70,4.30,V,7E4
+000_Cell Voltage 029,C029,0x220102,ag/50,2.70,4.30,V,7E4
+000_Cell Voltage 030,C030,0x220102,ah/50,2.70,4.30,V,7E4
+000_Cell Voltage 031,C031,0x220102,ai/50,2.70,4.30,V,7E4
+000_Cell Voltage 032,C032,0x220102,aj/50,2.70,4.30,V,7E4
+000_Cell Voltage 033,C033,0x220103,e/50,2.70,4.30,V,7E4
+000_Cell Voltage 034,C034,0x220103,f/50,2.70,4.30,V,7E4
+000_Cell Voltage 035,C035,0x220103,g/50,2.70,4.30,V,7E4
+000_Cell Voltage 036,C036,0x220103,h/50,2.70,4.30,V,7E4
+000_Cell Voltage 037,C037,0x220103,i/50,2.70,4.30,V,7E4
+000_Cell Voltage 038,C038,0x220103,j/50,2.70,4.30,V,7E4
+000_Cell Voltage 039,C039,0x220103,k/50,2.70,4.30,V,7E4
+000_Cell Voltage 040,C040,0x220103,l/50,2.70,4.30,V,7E4
+000_Cell Voltage 041,C041,0x220103,m/50,2.70,4.30,V,7E4
+000_Cell Voltage 042,C042,0x220103,n/50,2.70,4.30,V,7E4
+000_Cell Voltage 043,C043,0x220103,o/50,2.70,4.30,V,7E4
+000_Cell Voltage 044,C044,0x220103,p/50,2.70,4.30,V,7E4
+000_Cell Voltage 045,C045,0x220103,q/50,2.70,4.30,V,7E4
+000_Cell Voltage 046,C046,0x220103,r/50,2.70,4.30,V,7E4
+000_Cell Voltage 047,C047,0x220103,s/50,2.70,4.30,V,7E4
+000_Cell Voltage 048,C048,0x220103,t/50,2.70,4.30,V,7E4
+000_Cell Voltage 049,C049,0x220103,u/50,2.70,4.30,V,7E4
+000_Cell Voltage 050,C050,0x220103,v/50,2.70,4.30,V,7E4
+000_Cell Voltage 051,C051,0x220103,w/50,2.70,4.30,V,7E4
+000_Cell Voltage 052,C052,0x220103,x/50,2.70,4.30,V,7E4
+000_Cell Voltage 053,C053,0x220103,y/50,2.70,4.30,V,7E4
+000_Cell Voltage 054,C054,0x220103,z/50,2.70,4.30,V,7E4
+000_Cell Voltage 055,C055,0x220103,aa/50,2.70,4.30,V,7E4
+000_Cell Voltage 056,C056,0x220103,ab/50,2.70,4.30,V,7E4
+000_Cell Voltage 057,C057,0x220103,ac/50,2.70,4.30,V,7E4
+000_Cell Voltage 058,C058,0x220103,ad/50,2.70,4.30,V,7E4
+000_Cell Voltage 059,C059,0x220103,ae/50,2.70,4.30,V,7E4
+000_Cell Voltage 060,C060,0x220103,af/50,2.70,4.30,V,7E4
+000_Cell Voltage 061,C061,0x220103,ag/50,2.70,4.30,V,7E4
+000_Cell Voltage 062,C062,0x220103,ah/50,2.70,4.30,V,7E4
+000_Cell Voltage 063,C063,0x220103,ai/50,2.70,4.30,V,7E4
+000_Cell Voltage 064,C064,0x220103,aj/50,2.70,4.30,V,7E4
+000_Cell Voltage 065,C065,0x220104,e/50,2.70,4.30,V,7E4
+000_Cell Voltage 066,C066,0x220104,f/50,2.70,4.30,V,7E4
+000_Cell Voltage 067,C067,0x220104,g/50,2.70,4.30,V,7E4
+000_Cell Voltage 068,C068,0x220104,h/50,2.70,4.30,V,7E4
+000_Cell Voltage 069,C069,0x220104,i/50,2.70,4.30,V,7E4
+000_Cell Voltage 070,C070,0x220104,j/50,2.70,4.30,V,7E4
+000_Cell Voltage 071,C071,0x220104,k/50,2.70,4.30,V,7E4
+000_Cell Voltage 072,C072,0x220104,l/50,2.70,4.30,V,7E4
+000_Cell Voltage 073,C073,0x220104,m/50,2.70,4.30,V,7E4
+000_Cell Voltage 074,C074,0x220104,n/50,2.70,4.30,V,7E4
+000_Cell Voltage 075,C075,0x220104,o/50,2.70,4.30,V,7E4
+000_Cell Voltage 076,C076,0x220104,p/50,2.70,4.30,V,7E4
+000_Cell Voltage 077,C077,0x220104,q/50,2.70,4.30,V,7E4
+000_Cell Voltage 078,C078,0x220104,r/50,2.70,4.30,V,7E4
+000_Cell Voltage 079,C079,0x220104,s/50,2.70,4.30,V,7E4
+000_Cell Voltage 080,C080,0x220104,t/50,2.70,4.30,V,7E4
+000_Cell Voltage 081,C081,0x220104,u/50,2.70,4.30,V,7E4
+000_Cell Voltage 082,C082,0x220104,v/50,2.70,4.30,V,7E4
+000_Cell Voltage 083,C083,0x220104,w/50,2.70,4.30,V,7E4
+000_Cell Voltage 084,C084,0x220104,x/50,2.70,4.30,V,7E4
+000_Cell Voltage 085,C085,0x220104,y/50,2.70,4.30,V,7E4
+000_Cell Voltage 086,C086,0x220104,z/50,2.70,4.30,V,7E4
+000_Cell Voltage 087,C087,0x220104,aa/50,2.70,4.30,V,7E4
+000_Cell Voltage 088,C088,0x220104,ab/50,2.70,4.30,V,7E4
+000_Cell Voltage 089,C089,0x220104,ac/50,2.70,4.30,V,7E4
+000_Cell Voltage 090,C090,0x220104,ad/50,2.70,4.30,V,7E4
+000_Cell Voltage 091,C091,0x220104,ae/50,2.70,4.30,V,7E4
+000_Cell Voltage 092,C092,0x220104,af/50,2.70,4.30,V,7E4
+000_Cell Voltage 093,C093,0x220104,ag/50,2.70,4.30,V,7E4
+000_Cell Voltage 094,C094,0x220104,ah/50,2.70,4.30,V,7E4
+000_Cell Voltage 095,C095,0x220104,ai/50,2.70,4.30,V,7E4
+000_Cell Voltage 096,C096,0x220104,aj/50,2.70,4.30,V,7E4
+000_Cell Voltage 097,C097,0x22010A,e/50,2.70,4.30,V,7E4
+000_Cell Voltage 098,C098,0x22010A,f/50,2.70,4.30,V,7E4
+000_Cell Voltage 099,C099,0x22010A,g/50,2.70,4.30,V,7E4
+000_Cell Voltage 100,C100,0x22010A,h/50,2.70,4.30,V,7E4
+000_Cell Voltage 101,C101,0x22010A,i/50,2.70,4.30,V,7E4
+000_Cell Voltage 102,C102,0x22010A,j/50,2.70,4.30,V,7E4
+000_Cell Voltage 103,C103,0x22010A,k/50,2.70,4.30,V,7E4
+000_Cell Voltage 104,C104,0x22010A,l/50,2.70,4.30,V,7E4
+000_Cell Voltage 105,C105,0x22010A,m/50,2.70,4.30,V,7E4
+000_Cell Voltage 106,C106,0x22010A,n/50,2.70,4.30,V,7E4
+000_Cell Voltage 107,C107,0x22010A,o/50,2.70,4.30,V,7E4
+000_Cell Voltage 108,C108,0x22010A,p/50,2.70,4.30,V,7E4
+000_Cell Voltage 109,C109,0x22010A,q/50,2.70,4.30,V,7E4
+000_Cell Voltage 110,C110,0x22010A,r/50,2.70,4.30,V,7E4
+000_Cell Voltage 111,C111,0x22010A,s/50,2.70,4.30,V,7E4
+000_Cell Voltage 112,C112,0x22010A,t/50,2.70,4.30,V,7E4
+000_Cell Voltage 113,C113,0x22010A,u/50,2.70,4.30,V,7E4
+000_Cell Voltage 114,C114,0x22010A,v/50,2.70,4.30,V,7E4
+000_Cell Voltage 115,C115,0x22010A,w/50,2.70,4.30,V,7E4
+000_Cell Voltage 116,C116,0x22010A,x/50,2.70,4.30,V,7E4
+000_Cell Voltage 117,C117,0x22010A,y/50,2.70,4.30,V,7E4
+000_Cell Voltage 118,C118,0x22010A,z/50,2.70,4.30,V,7E4
+000_Cell Voltage 119,C119,0x22010A,aa/50,2.70,4.30,V,7E4
+000_Cell Voltage 120,C120,0x22010A,ab/50,2.70,4.30,V,7E4
+000_Cell Voltage 121,C121,0x22010A,ac/50,2.70,4.30,V,7E4
+000_Cell Voltage 122,C122,0x22010A,ad/50,2.70,4.30,V,7E4
+000_Cell Voltage 123,C123,0x22010A,ae/50,2.70,4.30,V,7E4
+000_Cell Voltage 124,C124,0x22010A,af/50,2.70,4.30,V,7E4
+000_Cell Voltage 125,C125,0x22010A,ag/50,2.70,4.30,V,7E4
+000_Cell Voltage 126,C126,0x22010A,ah/50,2.70,4.30,V,7E4
+000_Cell Voltage 127,C127,0x22010A,ai/50,2.70,4.30,V,7E4
+000_Cell Voltage 128,C128,0x22010A,aj/50,2.70,4.30,V,7E4
+000_Cell Voltage 129,C129,0x22010B,e/50,2.70,4.30,V,7E4
+000_Cell Voltage 130,C130,0x22010B,f/50,2.70,4.30,V,7E4
+000_Cell Voltage 131,C131,0x22010B,g/50,2.70,4.30,V,7E4
+000_Cell Voltage 132,C132,0x22010B,h/50,2.70,4.30,V,7E4
+000_Cell Voltage 133,C133,0x22010B,i/50,2.70,4.30,V,7E4
+000_Cell Voltage 134,C134,0x22010B,j/50,2.70,4.30,V,7E4
+000_Cell Voltage 135,C135,0x22010B,k/50,2.70,4.30,V,7E4
+000_Cell Voltage 136,C136,0x22010B,l/50,2.70,4.30,V,7E4
+000_Cell Voltage 137,C137,0x22010B,m/50,2.70,4.30,V,7E4
+000_Cell Voltage 138,C138,0x22010B,n/50,2.70,4.30,V,7E4
+000_Cell Voltage 139,C139,0x22010B,o/50,2.70,4.30,V,7E4
+000_Cell Voltage 140,C140,0x22010B,p/50,2.70,4.30,V,7E4
+000_Cell Voltage 141,C141,0x22010B,q/50,2.70,4.30,V,7E4
+000_Cell Voltage 142,C142,0x22010B,r/50,2.70,4.30,V,7E4
+000_Cell Voltage 143,C143,0x22010B,s/50,2.70,4.30,V,7E4
+000_Cell Voltage 144,C144,0x22010B,t/50,2.70,4.30,V,7E4
+000_Cell Voltage 145,C145,0x22010B,u/50,2.70,4.30,V,7E4
+000_Cell Voltage 146,C146,0x22010B,v/50,2.70,4.30,V,7E4
+000_Cell Voltage 147,C147,0x22010B,w/50,2.70,4.30,V,7E4
+000_Cell Voltage 148,C148,0x22010B,x/50,2.70,4.30,V,7E4
+000_Cell Voltage 149,C149,0x22010B,y/50,2.70,4.30,V,7E4
+000_Cell Voltage 150,C150,0x22010B,z/50,2.70,4.30,V,7E4
+000_Cell Voltage 151,C151,0x22010B,aa/50,2.70,4.30,V,7E4
+000_Cell Voltage 152,C152,0x22010B,ab/50,2.70,4.30,V,7E4
+000_Cell Voltage 153,C153,0x22010B,ac/50,2.70,4.30,V,7E4
+000_Cell Voltage 154,C154,0x22010B,ad/50,2.70,4.30,V,7E4
+000_Cell Voltage 155,C155,0x22010B,ae/50,2.70,4.30,V,7E4
+000_Cell Voltage 156,C156,0x22010B,af/50,2.70,4.30,V,7E4
+000_Cell Voltage 157,C157,0x22010B,ag/50,2.70,4.30,V,7E4
+000_Cell Voltage 158,C168,0x22010B,ah/50,2.70,4.30,V,7E4
+000_Cell Voltage 159,C159,0x22010B,ai/50,2.70,4.30,V,7E4
+000_Cell Voltage 160,C160,0x22010B,aj/50,2.70,4.30,V,7E4
+000_Cell Voltage 161,C161,0x22010C,e/50,2.70,4.30,V,7E4
+000_Cell Voltage 162,C162,0x22010C,f/50,2.70,4.30,V,7E4
+000_Cell Voltage 163,C163,0x22010C,g/50,2.70,4.30,V,7E4
+000_Cell Voltage 164,C164,0x22010C,h/50,2.70,4.30,V,7E4
+000_Cell Voltage 165,C165,0x22010C,i/50,2.70,4.30,V,7E4
+000_Cell Voltage 166,C166,0x22010C,j/50,2.70,4.30,V,7E4
+000_Cell Voltage 167,C167,0x22010C,k/50,2.70,4.30,V,7E4
+000_Cell Voltage 168,C168,0x22010C,l/50,2.70,4.30,V,7E4
+000_Cell Voltage 169,C169,0x22010C,m/50,2.70,4.30,V,7E4
+000_Cell Voltage 170,C170,0x22010C,n/50,2.70,4.30,V,7E4
+000_Cell Voltage 171,C171,0x22010C,o/50,2.70,4.30,V,7E4
+000_Cell Voltage 172,C172,0x22010C,p/50,2.70,4.30,V,7E4
+000_Cell Voltage 173,C173,0x22010C,q/50,2.70,4.30,V,7E4
+000_Cell Voltage 174,C174,0x22010C,r/50,2.70,4.30,V,7E4
+000_Cell Voltage 175,C175,0x22010C,s/50,2.70,4.30,V,7E4
+000_Cell Voltage 176,C176,0x22010C,t/50,2.70,4.30,V,7E4
+000_Cell Voltage 177,C177,0x22010C,u/50,2.70,4.30,V,7E4
+000_Cell Voltage 178,C178,0x22010C,v/50,2.70,4.30,V,7E4
+000_Cell Voltage 179,C179,0x22010C,w/50,2.70,4.30,V,7E4
+000_Cell Voltage 180,C180,0x22010C,x/50,2.70,4.30,V,7E4
+001_Outdoor Temperature,Outdoor,220100,(G/2)-40,-40,80,C,7B3
+001_Indoor Temperature,Indoor,220100,(F/2)-40,-40,80,C,7B3
+004_CALC Average Battery Pack Temperature, Batt Avg,,(val{000_Battery Pack B01}+val{000_Battery Pack B02}+val{000_Battery Pack B03}+val{000_Battery Pack B04}+val{000_Battery Pack B05}+val{000_Battery Pack B06}+val{000_Battery Pack B07}+val{000_Battery Pack B08}+val{000_Battery Pack B09}+val{000_Battery Pack B10}+val{000_Battery Pack B11}+val{000_Battery Pack B12}+val{000_Battery Pack B13}+val{000_Battery Pack B14}+val{000_Battery Pack B15}+val{000_Battery Pack B16})/16.0,-40,80,C,
+004_CALC Average Cell Voltage,Avg Cell,0x220101,val{000_Battery DC Voltage}/180,2.70,4.30,V,7E4
+004_CALC Estimated time 2.3kW 80% Charge,2.3kW80,0x220105,(MAX(0:(0.8-(val{000_State of Charge Display}/100))))*3193/60,0.0,72.0,hours,7E4
+004_CALC Estimated time 3.7kW 80% Charge,3.7kW80,0x220105,(MAX(0:(0.8-(val{000_State of Charge Display}/100))))*1993/60,0.0,72.0,hours,7E4
+004_CALC Estimated time 7.4kW 80% Charge,7.4kW80,0x220105,(MAX(0:(0.8-(val{000_State of Charge Display}/100))))*1008/60,0.0,72.0,hours,7E4
+004_CALC Estimated time 11kW 80% Charge,11kW80,0x220105,(MAX(0:(0.8-(val{000_State of Charge Display}/100))))*665/60,0.0,72.0,hours,7E4
+004_CALC Estimated time 50kW 80% Charge,50kW80,0x220105,(MAX(0:(0.8-(val{000_State of Charge Display}/100))))*92,0,3600,minutes,7E4
+004_CALC Estimated time 100kW 80% Charge,100kW80,0x220105,(MAX(0:(0.8-(val{000_State of Charge Display}/100))))*52,0,3600,minutes,7E4
+004_CALC Estimated time 150kW 80% Charge,150kW80,0x220105,(MAX(0:(0.8-(val{000_State of Charge Display}/100))))*38,0,3600,minutes,7E4
+004_CALC Estimated time 175kW 80% Charge,175kW80,0x220105,(MAX(0:(0.8-(val{000_State of Charge Display}/100))))*33,0,3600,minutes,7E4
+004_CALC Estimated time 350kW 80% Charge,350kW80,0x220105,(MAX(0:(0.8-(val{000_State of Charge Display}/100))))*26,0,3600,minutes,7E4
+000_Airbag H/wire Duty,Airbag,0x220105,w,50,100,,7E4
+000_Auxillary Battery Voltage,Aux,0x220101,ad*0.1,6.0,15.0,V,7E4
+000_Available Charge Power,MaxREGEN,0x220105,((q<8)+r)/100,0,270,kW,7E4
+000_Available Discharge Power,MaxPOWER,0x220105,((s<8)+t)/100,0,270,kW,7E4
+000_Battery Cell Voltage Deviation,CellDiff,0x220105,u/50,0,1,V,7E4
+000_Battery Current,Batt,0x220101,((Signed(K)*256)+L)/10,-200,200,A,7E4
+000_Battery DC Voltage,Batt,0x220101,((m<8)+n)/10,400,840,V,7E4
+000_Battery Fan Feedback,BattFan,0x220101,ac,0,120,Hz,7E4
+000_Battery Fan Status,BattFan,0x220101,ab,0,9,,7E4
+000_Battery Heater 1 Temperature,Heater,0x220105,Signed(X),0,80,C,7E4
+000_Battery Max Temperature,Batt Max,0x220101,Signed(O),-40,80,C,7E4
+000_Battery Min Temperature,Batt Min,0x220101,Signed(P),-40,80,C,7E4
+000_Battery Pack B01,B01,0x220101,Signed(Q),-40,80,C,7E4
+000_Battery Pack B02,B02,0x220101,Signed(R),-40,80,C,7E4
+000_Battery Pack B03,B03,0x220101,Signed(S),-40,80,C,7E4
+000_Battery Pack B04,B04,0x220101,Signed(T),-40,80,C,7E4
+000_Battery Pack B05,B05,0x220101,Signed(U),-40,80,C,7E4
+000_Battery Pack B06,B06,0x220105,Signed(J),-40,80,C,7E4
+000_Battery Pack B07,B07,0x220105,Signed(K),-40,80,C,7E4
+000_Battery Pack B08,B08,0x220105,Signed(L),-40,80,C,7E4
+000_Battery Pack B09,B09,0x220105,Signed(M),-40,80,C,7E4
+000_Battery Pack B10,B10,0x220105,Signed(N),-40,80,C,7E4
+000_Battery Pack B11,B11,0x220105,Signed(O),-40,80,C,7E4
+000_Battery Pack B12,B12,0x220105,Signed(P),-40,80,C,7E4
+000_Battery Pack B13,B13,0x220105,Signed(AN),-40,80,C,7E4
+000_Battery Pack B14,B14,0x220105,Signed(AO),-40,80,C,7E4
+000_Battery Pack B15,B15,0x220105,Signed(AP),-40,80,C,7E4
+000_Battery Pack B16,B16,0x220105,Signed(AQ),-40,80,C,7E4
+000_Battery Power,Energy kW,0x220101,val{000_Battery Current}*val{000_Battery DC Voltage}/1000,-270,270,,7E4
+000_BMS Ignition,Ignition,0x220101,{ay:2},0,1,,7E4
+000_BMS Main Relay,Relay,0x220101,{j:0},0,1,,7E4
+000_Cumulative Charge Current,CCC,0x220101,((ae<24)+(af<16)+(ag<8)+ah)/10,0,1000000,Ah,7E4
+000_Cumulative Discharge Current,CDC,0x220101,((ai<24)+(aj<16)+(ak<8)+al)/10,0,1000000,Ah,7E4
+000_Cumulative Energy Charged,CEC,0x220101,((am<24)+(an<16)+(ao<8)+ap)/10,0,1000000,kWh,7E4
+000_Cumulative Energy Discharged,CED,0x220101,((aq<24)+(ar<16)+(as<8)+at)/10,0,1000000,kWh,7E4
+000_Drive Motor Speed 1,RPM1,0x220101,(Signed(BB)*256)+BC,-10100,10100,rpm,7E4
+000_Drive Motor Speed 2,RPM2,0x220101,(Signed(BD)*256))+BE,-10100,10100,rpm,7E4
+000_HV_Charging,Charging,0x220101,{j:7},0,1,,7E4
+000_Inverter Capacitor Voltage,Capacitor,0x220101,((az<8)+ba),0,840,V,7E4
+000_Isolation Resistance,Resistance,0x220101,((bf<8)+bg),0,1000,kOhm,7E4
+000_Maximum Cell Voltage,Max Cell,0x220101,x/50,2.7,4.3,V,7E4
+000_Maximum Cell Voltage No,Max Cell#,0x220101,y,0,192,,7E4
+000_Maximum Deterioration Cell No,Max Det Cell#,0x220105,ab,0,192,,7E4
+000_Minimum Cell Voltage,Min Cell,0x220101,z/50,2.7,4.3,V,7E4
+000_Minimum Cell Voltage No,Min Cell#,0x220101,aa,0,192,,7E4
+000_Minimum Deterioration,Min Det,0x220105,((ac<8)+ad)/10,0,100,%,7E4
+000_Minimum Deterioration Cell No,Min Det Cell#,0x220105,ae,0,192,,7E4
+000_Normal Charge Port,AC Plug,0x220101,{j:5},0,1,,7E4
+000_Operating Time,OpTime,0x220101,((au<24)+(av<16)+(aw<8)+ax)/3600,0,1000000,hours,7E4
+000_Rapid Charge Port,CCS Plug,0x220101,{j:6},0,1,,7E4
+000_State of Charge BMS,SOC BMS,0x220101,e/2,0,100,%,7E4
+000_State of Charge Display,SOC,0x220105,af/2,0,100,%,7E4
+000_State of Health,SOH,0x220105,((z<8)+aa)/10,0,100,%,7E4
+~Modifications by Jason Rapp for ABRP data contribution,List Credit,,,,,,
+!_ABRP_Battery Current,Batt Current,,val{000_Battery Current},-200,200,A,
+!_ABRP_Battery DC Voltage,Batt Volts,,val{000_Battery DC Voltage},400,840,V,
+!_ABRP_Battery Power,Energy,,val{000_Battery Current}*val{000_Battery DC Voltage}/1000,-270,270,kW,
+!_ABRP_Fast_Charging,Charging,,val{000_Rapid Charge Port},0,1,,
+!_ABRP_State of Charge BMS,SOC BMS,,val{000_State of Charge BMS},0,100,%,
+!_ABRP_State of Charge Display,SOC,,val{000_State of Charge Display},0,100,%,
+!_ABRP_Max Deterioration,SOH,,val{000_Maximum Deterioration},0,100,%,
+001_Tire Pressure Front Left,FL,0x22C00B,e/5,0.00,120.00,psi,7A0
+001_Tire Pressure Front Right,FR,0x22C00B,j/5,0.00,120.00,psi,7A0
+001_Tire Pressure Back Left,BL,0x22C00B,o/5,0.00,120.00,psi,7A0
+001_Tire Pressure Back Right,BR,0x22C00B,t/5,0.00,120.00,psi,7A0
+001_Tire Temperature Front Left,FL,0x22C00B,f-50,-40,65,C,7A0
+001_Tire Temperature Front Right,FR,0x22C00B,k-50,-40,65,C,7A0
+001_Tire Temperature Back Left,BL,0x22C00B,p-50,-40,65,C,7A0
+001_Tire Temperature Back Right,BR,0x22C00B,u-50,-40,65,C,7A0
+001_Odometer,Odo,0x22B002,Int24(g:h:i),0,16777215,km,7C6
+001_Real Vehicle Speed,Speed,220100,ad,0,200,kmh,7B3
