@@ -235,7 +235,7 @@ Name,ShortName,ModeAndPID,Equation,Min Value,Max Value,Units,Header
 000_Cell Voltage 192,C192,0x22010C,aj/50,2.70,4.30,V,7E4
 001_Outdoor Temperature,Outdoor,220100,(G/2)-40,-40,80,C,7B3
 001_Indoor Temperature,Indoor,220100,(F/2)-40,-40,80,C,7B3
-004_CALC Average Battery Pack Temperature, Batt Avg,,(val{000_Battery Pack B01}+val{000_Battery Pack B02}+val{000_Battery Pack B03}+val{000_Battery Pack B04}+val{000_Battery Pack B05}+val{000_Battery Pack B06}+val{000_Battery Pack B07}+val{000_Battery Pack B08}+val{000_Battery Pack B09}+val{000_Battery Pack B10}+val{000_Battery Pack B11}+val{000_Battery Pack B12}+val{000_Battery Pack B13}+val{000_Battery Pack B14}+val{000_Battery Pack B15}+val{000_Battery Pack B16})/18.0,-40,80,C,
+004_CALC Average Battery Pack Temperature, Batt Avg,,(val{000_Battery Pack B01}+val{000_Battery Pack B02}+val{000_Battery Pack B03}+val{000_Battery Pack B04}+val{000_Battery Pack B05}+val{000_Battery Pack B06}+val{000_Battery Pack B07}+val{000_Battery Pack B08}+val{000_Battery Pack B09}+val{000_Battery Pack B10}+val{000_Battery Pack B11}+val{000_Battery Pack B12}+val{000_Battery Pack B13}+val{000_Battery Pack B14}+val{000_Battery Pack B15}+val{000_Battery Pack B16})/16.0,-40,80,C,
 004_CALC Average Cell Voltage,Avg Cell,0x220101,val{000_Battery DC Voltage}/192,2.70,4.30,V,7E4
 004_CALC Estimated time 2.3kW 80% Charge,2.3kW80,0x220105,(MAX(0:(0.8-(val{000_State of Charge Display}/100))))*3193/60,0.0,72.0,hours,7E4
 004_CALC Estimated time 3.7kW 80% Charge,3.7kW80,0x220105,(MAX(0:(0.8-(val{000_State of Charge Display}/100))))*1993/60,0.0,72.0,hours,7E4
