@@ -299,6 +299,7 @@ Name,ShortName,ModeAndPID,Equation,Min Value,Max Value,Units,Header
 000_State of Charge BMS,SOC BMS,0x220101,e/2,0,100,%,7E4
 000_State of Charge Display,SOC,0x220105,af/2,0,100,%,7E4
 000_State of Health,SOH,0x220105,((z<8)+aa)/10,0,100,%,7E4
+000_Requested Charge Current,Req Current,0x220101,((h<8)+i)/10,0,200,A,7E4
 ~Modifications by Jason Rapp for ABRP data contribution,List Credit,,,,,,
 !_ABRP_Battery Current,Batt Current,,val{000_Battery Current},-200,200,A,
 !_ABRP_Battery DC Voltage,Batt Volts,,val{000_Battery DC Voltage},400,840,V,
