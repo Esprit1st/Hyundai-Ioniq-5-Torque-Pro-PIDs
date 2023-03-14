@@ -241,8 +241,6 @@ Name,ShortName,ModeAndPID,Equation,Min Value,Max Value,Units,Header
 000_Battery Cell Voltage Deviation,CellDiff,0x220105,u/50,0,1,V,7E4
 000_Battery Current,Batt,0x220101,((Signed(K)*256)+L)/10,-200,200,A,7E4
 000_Battery DC Voltage,Batt,0x220101,((m<8)+n)/10,400,840,V,7E4
-000_Battery Fan Feedback,BattFan,0x220101,ac,0,120,Hz,7E4
-000_Battery Fan Status,BattFan,0x220101,ab,0,9,,7E4
 000_Battery Heater 1 Temperature,Heater,0x220105,Signed(X),0,80,C,7E4
 000_Battery Max Temperature,Batt Max,0x220101,Signed(O),-40,80,C,7E4
 000_Battery Min Temperature,Batt Min,0x220101,Signed(P),-40,80,C,7E4
