@@ -304,3 +304,4 @@ Name,ShortName,ModeAndPID,Equation,Min Value,Max Value,Units,Header
 001_Tire Temperature Back Right,BR,0x22C00B,u-50,-40,65,C,7A0
 001_Odometer,Odo,0x22B002,Int24(g:h:i),0,16777215,km,7C6
 001_Real Vehicle Speed,Speed,220100,ad,0,200,kmh,7B3
+001_Steering Angle,Steer Angle,0x22F010,(SIGNED(N)*256+M)/10,-720,720,deg,730
