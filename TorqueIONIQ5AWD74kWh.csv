@@ -267,8 +267,8 @@ Name,ShortName,ModeAndPID,Equation,Min Value,Max Value,Units,Header
 000_Cumulative Discharge Current,CDC,0x220101,((ai<24)+(aj<16)+(ak<8)+al)/10,0,1000000,Ah,7E4
 000_Cumulative Energy Charged,CEC,0x220101,((am<24)+(an<16)+(ao<8)+ap)/10,0,1000000,kWh,7E4
 000_Cumulative Energy Discharged,CED,0x220101,((aq<24)+(ar<16)+(as<8)+at)/10,0,1000000,kWh,7E4
-000_Drive Motor Speed 1,RPM1,0x220101,(Signed(BB)*256)+BC,-10100,10100,rpm,7E4
-000_Drive Motor Speed 2,RPM2,0x220101,(Signed(BD)*256))+BE,-10100,10100,rpm,7E4
+000_Drive Motor Speed Rear,RPMR,0x220101,(Signed(BB)*256)+BC,-10100,10100,rpm,7E4
+000_Drive Motor Speed Front,RPMF,0x220101,(Signed(BD)*256))+BE,-10100,10100,rpm,7E4
 000_HV_Charging,Charging,0x220101,{j:7},0,1,,7E4
 000_Inverter Capacitor Voltage,Capacitor,0x220101,((az<8)+ba),0,840,V,7E4
 000_Isolation Resistance,Resistance,0x220101,((bf<8)+bg),0,1000,kOhm,7E4
