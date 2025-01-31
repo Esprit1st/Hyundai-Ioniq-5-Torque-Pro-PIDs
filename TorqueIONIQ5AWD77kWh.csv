@@ -41,6 +41,8 @@ Name,ShortName,ModeAndPID,Equation,Min Value,Max Value,Units,Header
 ~
 ~20211027 V7 Adapted some Min/Max values, including ABRP (thanks to @HTWUSER for spotting)
 ~
+~20240130 Add 002_Odometer (miles) only valid when vehicle display units are set to miles
+
 000_Cell Voltage 001,C001,0x220102,e/50,2.70,4.30,V,7E4
 000_Cell Voltage 002,C002,0x220102,f/50,2.70,4.30,V,7E4
 000_Cell Voltage 003,C003,0x220102,g/50,2.70,4.30,V,7E4
@@ -315,5 +317,6 @@ Name,ShortName,ModeAndPID,Equation,Min Value,Max Value,Units,Header
 001_Tire Temperature Back Left,BL,0x22C00B,p-50,-40,65,C,7A0
 001_Tire Temperature Back Right,BR,0x22C00B,u-50,-40,65,C,7A0
 001_Odometer,Odo,0x22B002,Int24(g:h:i),0,16777215,km,7C6
+002_Odometer,Odo,0x22B002,Int24(j:k:l),0,16777215,mi,7C6
 001_Real Vehicle Speed,Speed,220100,ad,0,200,kmh,7B3
 001_Steering Angle,Steer Angle,0x22F010,(SIGNED(N)*256+M)/10,-720,720,deg,730
