@@ -262,6 +262,7 @@ Name,ShortName,ModeAndPID,Equation,Min Value,Max Value,Units,Header
 000_Battery Pack B15,B15,0x220105,Signed(AP),-40,80,C,7E4
 000_Battery Pack B16,B16,0x220105,Signed(AQ),-40,80,C,7E4
 000_Battery Power,Energy kW,0x220101,val{000_Battery Current}*val{000_Battery DC Voltage}/1000,-270,270,,7E4
+000_Battery Remaining Energy,Remaining energy,0x220105,((ac < 8) + ad) *2,0,74000,Wh,7E4
 000_BMS Ignition,Ignition,0x220101,{ay:2},0,1,,7E4
 000_BMS Main Relay,Relay,0x220101,{j:0},0,1,,7E4
 000_Cumulative Charge Current,CCC,0x220101,((ae<24)+(af<16)+(ag<8)+ah)/10,0,1000000,Ah,7E4
@@ -307,4 +308,5 @@ Name,ShortName,ModeAndPID,Equation,Min Value,Max Value,Units,Header
 002_Odometer,Odo,0x22B002,Int24(j:k:l),0,16777215,mi,7C6
 001_Real Vehicle Speed,Speed,220100,ad,0,200,kmh,7B3
 001_Steering Angle,Steer Angle,0x22F010,(SIGNED(N)*256+M)/10,-720,720,deg,730
+
 
