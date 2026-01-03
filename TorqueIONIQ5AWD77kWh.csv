@@ -250,6 +250,7 @@ Name,ShortName,ModeAndPID,Equation,Min Value,Max Value,Units,Header
 004_CALC Estimated time 350kW 80% Charge,350kW80,0x220105,(MAX(0:(0.8-(val{000_State of Charge Display}/100))))*26,0,3600,minutes,7E4
 000_Airbag H/wire Duty,Airbag,0x220105,w,50,100,,7E4
 000_Auxillary Battery Voltage,Aux,0x220101,ad*0.1,6.0,15.0,V,7E4
+000_Auxillary Battery SOC,Aux SOC,0x22E011,u,0,100,%,7E5
 000_Available Charge Power,MaxREGEN,0x220105,((q<8)+r)/100,0,270,kW,7E4
 000_Available Discharge Power,MaxPOWER,0x220105,((s<8)+t)/100,0,270,kW,7E4
 000_Battery Cell Voltage Deviation,CellDiff,0x220105,u/50,0,1,V,7E4
@@ -320,3 +321,4 @@ Name,ShortName,ModeAndPID,Equation,Min Value,Max Value,Units,Header
 002_Odometer,Odo,0x22B002,Int24(j:k:l),0,16777215,mi,7C6
 001_Real Vehicle Speed,Speed,220100,ad,0,200,kmh,7B3
 001_Steering Angle,Steer Angle,0x22F010,(SIGNED(N)*256+M)/10,-720,720,deg,730
+
