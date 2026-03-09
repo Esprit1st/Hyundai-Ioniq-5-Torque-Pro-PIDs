@@ -240,8 +240,8 @@ Name,ShortName,ModeAndPID,Equation,Min Value,Max Value,Units,Header
 000_Available Charge Power,MaxREGEN,0x220105,((q<8)+r)/100,0,270,kW,7E4
 000_Available Discharge Power,MaxPOWER,0x220105,((s<8)+t)/100,0,270,kW,7E4
 000_Battery Cell Voltage Deviation,CellDiff,0x220105,u/50,0,1,V,7E4
-000_Battery Current,Batt,0x220101,((Signed(K)*256)+L)/10,-200,200,A,7E4
-000_Battery DC Voltage,Batt,0x220101,((m<8)+n)/10,400,840,V,7E4
+000_Battery Current,BattA,0x220101,((Signed(K)*256)+L)/10,-200,200,A,7E4
+000_Battery DC Voltage,BattV,0x220101,((m<8)+n)/10,400,840,V,7E4
 000_Battery Heater 1 Temperature,Heater,0x220105,Signed(X),0,80,C,7E4
 000_Battery Max Temperature,Batt Max,0x220101,Signed(O),-40,80,C,7E4
 000_Battery Min Temperature,Batt Min,0x220101,Signed(P),-40,80,C,7E4
@@ -308,5 +308,6 @@ Name,ShortName,ModeAndPID,Equation,Min Value,Max Value,Units,Header
 002_Odometer,Odo,0x22B002,Int24(j:k:l),0,16777215,mi,7C6
 001_Real Vehicle Speed,Speed,220100,ad,0,200,kmh,7B3
 001_Steering Angle,Steer Angle,0x22F010,(SIGNED(N)*256+M)/10,-720,720,deg,730
+
 
 
