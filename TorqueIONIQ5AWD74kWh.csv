@@ -279,7 +279,6 @@ Name,ShortName,ModeAndPID,Equation,Min Value,Max Value,Units,Header
 000_Maximum Deterioration Cell No,Max Det Cell#,0x220105,ab,0,192,,7E4
 000_Minimum Cell Voltage,Min Cell,0x220101,z/50,2.7,4.3,V,7E4
 000_Minimum Cell Voltage No,Min Cell#,0x220101,aa,0,192,,7E4
-000_Minimum Deterioration,Min Det,0x220105,((ac<8)+ad)/10,0,100,%,7E4
 000_Minimum Deterioration Cell No,Min Det Cell#,0x220105,ae,0,192,,7E4
 000_Normal Charge Port,AC Plug,0x220101,{j:5},0,1,,7E4
 000_Operating Time,OpTime,0x220101,((au<24)+(av<16)+(aw<8)+ax)/3600,0,1000000,hours,7E4
